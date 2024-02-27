@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus virtual</title>
+    <link rel="stylesheet" href="CSS/estilo.css" />
+</head>
+
+<body>
+    <div id="encabezado">
+        <img src="Imágenes/universidad_logo.png">
+    </div>
+    <div id="contenedor-contenido-excepto-encabezado">
+        <div id="contenedor-acceso-cuenta">
+            <div id="inicio-sesion">
+                Inicio de sesión
+            </div>
+            <form id="form-usuario-contraseña">
+                <div class="entrada">
+                    <label for="tf-usuario">Usuario:</label><br>
+                    <input type="text" id="tf-usuario" name="tf-usuario" class="text-field" />
+                </div>
+                <div class="entrada">
+                    <label for="pf-contraseña">Contraseña:</label><br>
+                    <input type="password" id="pf-contraseña" name="pf-contraseña" class="text-field " />
+                </div>
+                <p id="mensaje-form-usuario-contraseña" class="mensaje"></p>
+                <button type="button" onclick="corroborarDatos()">Acceder</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="JS/acceso_cuenta.js"></script>
+</body>
+
+</html>

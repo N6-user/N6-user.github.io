@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aulas</title>
+    <link rel="stylesheet" href="CSS/estilo.css" />
+</head>
+
+<body>
+    <div id="encabezado">
+        <img src="Imágenes/universidad_logo.png">
+    </div>
+    <div id="contenedor-contenido-excepto-encabezado">
+        <div id="contenedor-seleccion-aula">
+            <a href="lab_programacion_1.html" id="link-materia">
+                <img src="Imágenes/lab_programacion_1.png" alt="TUDS - 2023, lab. de programación 1 - C2"
+                    id="img-materia">
+                <div id="contenedor-nombre-materia">
+                    <p id="nombre-materia">Lab. de programación I - C2</p>
+                </div>
+            </a>
+        </div>
+        <div id="contenedor-botones-desplazamiento-materias">
+            <img src="Imágenes/flechas.png" alt="flechas" usemap="#mapa-flechas">
+
+            <map name="mapa-flechas">
+                <area shape="poly" coords="0,42,80,1,80,21,154,21,154,64,80,64,80,84" onclick="anteriorMateria()">
+                <area shape="poly" coords="372,42,293,1,293,20,219,20,219,64,293,64,293,84"
+                    onclick="posteriorMateria()">
+            </map>
+        </div>
+    </div>
+
+    <script src="JS/seleccion_aula.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+html {
+    font-family: Roboto, sans-serif;
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: lightgray;
+}
+
+#contenedor-acceso-cuenta {
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+    width: 25%;
+    border-radius: 25px;
+    background-color: azure;
+}
+
+#contenedor-botones-desplazamiento-materias {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    user-select: none;
+    /* -webkit-user-select: none; */
+    /* CONSULTA*/
+}
+
+#contenedor-contenido-excepto-encabezado {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 90%;
+    width: 100%;
+}
+
+#contenedor-nombre-materia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    width: 100%;
+}
+
+#contenedor-seleccion-aula:hover {
+    background-color: rgb(218, 234, 248);
+    box-shadow: 0 0 10px 1px black;
+}
+
+#contenedor-seleccion-aula {
+    height: 70%;
+    width: 40%;
+    background-color: azure;
+    border: 2px solid black;
+}
+
+#encabezado {
+    display: flex;
+    justify-content: space-between;
+    background-color: lightseagreen;
+    height: 10%;
+}
+
+#img-materia {
+    height: 60%;
+    width: 100%;
+}
+
+#inicio-sesion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25%;
+    width: 100%;
+    font-size: 30px;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    color: white;
+    background-color: dodgerblue;
+}
+
+#form-usuario-contraseña {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+#link-materia {
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#nombre-materia {
+    margin: 0;
+    height: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.entrada {
+    width: 70%;
+}
+
+.mensaje {
+    color: red;
+    text-align: center;
+}
+
+.text-field {
+    width: 100%;
+}
+
+area {
+    cursor: pointer;
+}
