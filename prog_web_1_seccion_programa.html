@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación web 1: programa</title>
+    <link rel="stylesheet" href="CSS/estilo.css" />
+</head>
+
+<body>
+    <div id="encabezado">
+        <img src="Imágenes/universidad_logo.png">
+        <div id="contenedor-menu-y-ruta-navegacion">
+            <div id="menu">
+                <a href="aulas.html">Aulas</a>
+                <a href="inscripcion_materias.html">Inscripción a materias</a>
+                <a href="index.html">Salir</a>
+            </div>
+            <div id="ruta-navegacion">
+                <a href="aulas.html">Aulas</a>
+                <span>></span>
+                <a href="prog_web_1_seccion_principal.html">Programación web 1 - 2023</a>
+            </div>
+        </div>
+    </div>
+    <div id="contenedor-contenido-columnas-programa">
+        <div id="contenedor-secciones-aula">
+            <ul id="secciones-aula">
+                <li><a href="prog_web_1_seccion_principal.html">Principal</a></li>
+                <li id="li-seleccionado"><a href="prog_web_1_seccion_programa.html">Programa</a></li>
+                <li><a href="prog_web_1_seccion_calificaciones.html">Calificaciones</a>
+                </li>
+            </ul>
+        </div>
+        <div id="contenedor-seccion-programa">
+            <h2 id="titulo-seccion-programa">Unidades temáticas</h2>
+            <h3>HTML</h3>
+            <p>HTML son las siglas de Hyper Text Markup Language (Lenguaje de Marcado de Hipertexto). HTML es el
+                lenguaje de marcado estándar para crear páginas web. Describe la estructura de una página web, mediante
+                el uso de elementos que indican al navegador cómo mostrar el contenido.</p>
+
+            <h3>CSS</h3>
+            <p>CSS son las siglas de Cascading Style Sheets (Hojas de estilo en cascada). CSS es el lenguaje que
+                utilizamos para dar estilo a una página web. Describe cómo se mostrarán los elementos HTML en la
+                pantalla, papel o en otros medios. Puede controlar el diseño de Varias páginas web a la vez, lo cual nos
+                ahorrará mucho trabajo.</p>
+
+            <h3>JavaScript</h3>
+            <p>JavaScript (abreviado comúnmente JS) es un lenguaje de programación interpretado, dialecto del estándar
+                ECMAScript. Se utiliza principalmente del lado del cliente, implementado como parte de un navegador web
+                permitiendo mejoras en la interfaz de usuario y páginas web dinámicas.</p>
+        </div>
+    </div>
+
+    <script src="JS/seleccion_aula.js"></script>
+</body>
+
+</html>

@@ -30,12 +30,177 @@ body {
     /* CONSULTA*/
 }
 
+#contenedor-secciones-aula {
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    margin-top: 60px;
+    width: 25%;
+}
+
+#secciones-aula {
+    margin: 0;
+    list-style-type: square;
+}
+
+#contenedor-secciones-aula li {
+    border: 1px solid black;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-style: italic;
+    /* padding: 10px 0px 10px 5px; */
+    height: 50px;
+    width: 200px;
+}
+
+#contenedor-secciones-aula a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-indent: 10px;
+}
+
+#titulo-inscripción {
+    text-align: center;
+    margin: 50px 0;
+}
+
+#titulo-seccion-principal {
+    text-align: center;
+    margin: 50px 0;
+}
+
+#titulo-seccion-programa {
+    padding-left: 20px;
+    margin: 50px 0;
+}
+
+#titulo-seccion-calificaciones {
+    padding-left: 20px;
+    margin: 50px 0;
+}
+
+#li-seleccionado {
+    background-color: whitesmoke;
+}
+
+#contenedor-secciones-aula li:hover {
+    background-color: whitesmoke;
+}
+
+#contenedor-inscripcion {
+    background-color: white;
+    box-shadow: 0 0 10px 1px rgb(158, 158, 158);
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 0 20px 40px 20px;
+    margin: 2% 0%;
+    width: 60%;
+}
+
+#contenedor-seccion-principal {
+    background-color: white;
+    box-shadow: 0 0 10px 1px rgb(158, 158, 158);
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 0 20px 40px 20px;
+    margin: 2% 0%;
+    width: 60%;
+}
+
+#contenedor-seccion-programa {
+    background-color: white;
+    box-shadow: 0 0 10px 1px rgb(158, 158, 158);
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 0 20px 40px 20px;
+    margin: 2% 0%;
+    width: 60%;
+}
+
+#contenedor-seccion-calificaciones {
+    background-color: white;
+    box-shadow: 0 0 10px 1px rgb(158, 158, 158);
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 0 20px 40px 20px;
+    margin: 2% 0%;
+    width: 60%;
+}
+
+#contenedor-seccion-calificaciones span {
+    font-weight: bold;
+}
+
+
+#ruta-navegacion {
+    background-color: rgb(62, 149, 149);
+    box-sizing: border-box;
+    display: flex;
+    height: 40%;
+    align-items: center;
+    width: 100%;
+}
+
+#ruta-navegacion a {
+    color: rgb(237, 237, 237);
+    margin: 0 20px;
+    text-decoration: none;
+    line-height: 100%;
+}
+
+#ruta-navegacion span {
+    color: rgb(183, 182, 182);
+    font-size: 25px;
+    user-select: none;
+    line-height: 100%;
+}
+
+#ruta-navegacion a:hover {
+    color: white;
+}
+
 #contenedor-contenido-excepto-encabezado {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     height: 90%;
+    width: 100%;
+}
+
+#contenedor-contenido-inscripcion {
+    display: flex;
+    justify-content: center;
+    height: 90%;
+    width: 60%;
+}
+
+#contenedor-contenido-columnas-principal {
+    display: flex;
+    height: 90%;
+    width: 100%;
+}
+
+#contenedor-contenido-columnas-programa {
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+
+#contenedor-contenido-columnas-calificaciones {
+    display: flex;
+    height: 90%;
+    width: 100%;
+}
+
+
+#contenedor-menu-y-ruta-navegacion {
+    height: 100%;
     width: 100%;
 }
 
@@ -60,9 +225,8 @@ body {
 }
 
 #encabezado {
+    background-color: rgb(54, 192, 197);
     display: flex;
-    justify-content: space-between;
-    background-color: lightseagreen;
     height: 10%;
 }
 
@@ -101,11 +265,31 @@ body {
     text-decoration: none;
 }
 
+#menu {
+    display: flex;
+    justify-content: end;
+    height: 60%;
+    width: 100%;
+}
+
 #nombre-materia {
     margin: 0;
     height: auto;
     width: 100%;
     text-align: center;
+}
+
+#menu a {
+    box-sizing: border-box;
+    color: black;
+    font-size: 20px;
+    height: 100%;
+    padding: 10px;
+    text-decoration: none;
+}
+
+#menu a:hover {
+    background-color: rgb(120, 212, 208);
 }
 
 .entrada {
