@@ -1,30 +1,38 @@
-const CORREO = document.getElementById("fm-inscripcion-tf-correo"),
-    APELLIDO = document.getElementById("fm-inscripcion-tf-apellido"),
-    NOMBRE = document.getElementById("fm-inscripcion-tf-nombre"),
-    DNI = document.getElementById("fm-inscripcion-tf-dni"),
-    CELULAR = document.getElementById("fm-inscripcion-tf-celular"),
-    LAB_PROG_2 = document.getElementById("fm-inscripcion-cb-lab-prog-2"),
-    ADM_BASE_DATOS = document.getElementById("fm-inscripcion-cb-adm-base-datos"),
-    PROG_WEB_2 = document.getElementById("fm-inscripcion-cb-prog-web-2"),
-    MAT_2 = document.getElementById("fm-inscripcion-cb-mat-2"),
-    INGLES_TEC_1 = document.getElementById("fm-inscripcion-cb-ingles-tec-1"),
-    ING_SOFTWARE = document.getElementById("fm-inscripcion-cb-ing-software"),
-    MENSAJE = document.getElementById("inscripcion-mensaje-datos-enviados"),
-    MATERIAS = [LAB_PROG_2, ADM_BASE_DATOS, PROG_WEB_2, MAT_2, INGLES_TEC_1, ING_SOFTWARE],
-    erroresDatoIncompleto = [],
-    erroresDatoEquivocado = [];
+// Tener a disposición facilmente los elementos que componen el formulario
+const CORREO = document.getElementById("fm-inscripcion-tf-correo");
+const APELLIDO = document.getElementById("fm-inscripcion-tf-apellido");
+const NOMBRE = document.getElementById("fm-inscripcion-tf-nombre");
+const DNI = document.getElementById("fm-inscripcion-tf-dni");
+const CELULAR = document.getElementById("fm-inscripcion-tf-celular");
+const LAB_PROG_2 = document.getElementById("fm-inscripcion-cb-lab-prog-2");
+const ADM_BASE_DATOS = document.getElementById("fm-inscripcion-cb-adm-base-datos");
+const PROG_WEB_2 = document.getElementById("fm-inscripcion-cb-prog-web-2");
+const MAT_2 = document.getElementById("fm-inscripcion-cb-mat-2");
+const INGLES_TEC_1 = document.getElementById("fm-inscripcion-cb-ingles-tec-1");
+const ING_SOFTWARE = document.getElementById("fm-inscripcion-cb-ing-software");
+const MENSAJE = document.getElementById("inscripcion-mensaje-datos-enviados");
+const MATERIAS = [LAB_PROG_2, ADM_BASE_DATOS, PROG_WEB_2, MAT_2, INGLES_TEC_1, ING_SOFTWARE];
+// Identificar aquellos elementos que no tengan una entrada válida
+const erroresDatoIncompleto = [];
+const erroresDatoEquivocado = [];
 
+/**
+ *  Valida datos ingresados en el formulario y actualiza la página con la respuesta pertinente
+ */
 function corroborarDatos() {
+    // Quitar elementos anteriores en los arreglos, si los hubiera
     erroresDatoIncompleto.length = 0;
     erroresDatoEquivocado.length = 0;
-    let correo = CORREO.value.trim(),
-        apellido = APELLIDO.value.trim(),
-        nombre = NOMBRE.value.trim(),
-        dni = DNI.value.trim(),
-        celular = CELULAR.value.trim(),
-        datosCorrectos = true;
 
-    // revisar correo
+    // Obtener datos ingresados en los campos de texto
+    let correo = CORREO.value.trim();
+    let apellido = APELLIDO.value.trim();
+    let nombre = NOMBRE.value.trim();
+    let dni = DNI.value.trim();
+    let celular = CELULAR.value.trim();
+    let datosCorrectos = true;
+
+    // Revisar correo
     if (correo == "") {
         datosCorrectos = false;
         erroresDatoIncompleto.push(CORREO);
@@ -35,7 +43,7 @@ function corroborarDatos() {
         }
     }
 
-    // revisar apellido
+    // Revisar apellido
     if (apellido == "") {
         datosCorrectos = false;
         erroresDatoIncompleto.push(APELLIDO);
@@ -46,7 +54,7 @@ function corroborarDatos() {
         }
     }
 
-    // revisar nombre
+    // Revisar nombre
     if (nombre == "") {
         datosCorrectos = false;
         erroresDatoIncompleto.push(NOMBRE);
@@ -57,7 +65,7 @@ function corroborarDatos() {
         }
     }
 
-    // revisar dni
+    // Revisar dni
     if (dni == "") {
         datosCorrectos = false;
         erroresDatoIncompleto.push(DNI);
@@ -68,7 +76,7 @@ function corroborarDatos() {
         }
     }
 
-    // revisar celular
+    // Revisar celular
     if (celular == "") {
         datosCorrectos = false;
         erroresDatoIncompleto.push(CELULAR);
@@ -79,13 +87,14 @@ function corroborarDatos() {
         }
     }
 
-    // revisar materias
+    // Revisar materias
     if (!LAB_PROG_2.checked && !ADM_BASE_DATOS.checked && !PROG_WEB_2.checked && !INGLES_TEC_1.checked && !ING_SOFTWARE.checked && !MAT_2.checked) {
         datosCorrectos = false;
         erroresDatoEquivocado.push(MATERIAS);
     }
 
     if (datosCorrectos) {
+        // Inhabilitar los componentes del formulario
         document.getElementById("fm-inscripcion-bt-envio").setAttribute("disabled", "true");
         CORREO.setAttribute("disabled", "true");
         APELLIDO.setAttribute("disabled", "true");
@@ -97,11 +106,17 @@ function corroborarDatos() {
         }
 
         MENSAJE.innerHTML = "Los datos han sido enviados correctamente. Espere nuestra respuesta.";
+    } else {
+        MENSAJE.innerHTML = "Uno o más datos incorrectos. Por favor, reviselo y vuelva a enviar.";
     }
 
+    // Actualizar mensajes de error en la página, si los hubiera
     actualizarMensajesError();
 }
 
+/**
+ *  Actualizar los mensajes de error en la página
+ */
 function actualizarMensajesError() {
     const MEN_ERROR_CORREO = document.getElementById("fm-inscripcion-tf-correo-error"),
         MEN_ERROR_APELLIDO = document.getElementById("fm-inscripcion-tf-apellido-error"),
@@ -110,7 +125,7 @@ function actualizarMensajesError() {
         MEN_ERROR_CELULAR = document.getElementById("fm-inscripcion-tf-celular-error"),
         MEN_ERROR_MATERIAS = document.getElementById("fm-inscripcion-cb-materias-error");
 
-    // limpiar mensajes anteriores si los hubiera
+    // Limpiar mensajes anteriores si los hubiera
     MEN_ERROR_CORREO.innerHTML = "";
     MEN_ERROR_APELLIDO.innerHTML = "";
     MEN_ERROR_NOMBRE.innerHTML = "";
@@ -118,7 +133,7 @@ function actualizarMensajesError() {
     MEN_ERROR_CELULAR.innerHTML = "";
     MEN_ERROR_MATERIAS.innerHTML = "";
 
-    // colocar mensajes de ser necesario 
+    // Colocar mensajes de ser necesario 
     if (erroresDatoIncompleto.length > 0) {
         if (erroresDatoIncompleto.includes(CORREO)) {
             MEN_ERROR_CORREO.innerHTML = "Debe ingresar su correo.";

@@ -1,15 +1,20 @@
 const USUARIO = document.getElementById("tf-usuario");
 const CONTRASEÑA = document.getElementById("pf-contraseña");
-const todosLosDatos = [USUARIO, CONTRASEÑA], erroresDatoIncompleto = [], erroresDatoEquivocado = [];
+const todosLosDatos = [USUARIO, CONTRASEÑA];
+const erroresDatoIncompleto = [];
+const erroresDatoEquivocado = [];
 
+/**
+ * Validar los datos ingresados y cambiar de página si corresponde
+ */
 function corroborarDatos() {
     erroresDatoIncompleto.length = 0;
     erroresDatoEquivocado.length = 0;
-    let usuario = (USUARIO.value + "").trim();  // existe otra manera?
+    let usuario = USUARIO.value.trim();
     let contraseña = CONTRASEÑA.value;
     let datosCorrectos = true;
 
-    // revisar usuario    
+    // Revisar usuario    
     if (usuario == "") {
         datosCorrectos = false;
         erroresDatoIncompleto.push(USUARIO);
@@ -20,7 +25,7 @@ function corroborarDatos() {
         }
     }
 
-    // revisar contraseña
+    // Revisar contraseña
     if (contraseña == "") {
         datosCorrectos = false;
         erroresDatoIncompleto.push(CONTRASEÑA);
@@ -32,6 +37,7 @@ function corroborarDatos() {
     }
 
     if (datosCorrectos) {
+        // Reemplazar la página de acceso a cuenta por la página que muestra las aulas, sin posibilitar el retroceso mediante navegador
         window.location.replace("aulas.html");
     } else {
         mostrarErrores();
@@ -40,16 +46,14 @@ function corroborarDatos() {
 
 function mostrarErrores() {
     const MENSAJE = document.getElementById("mensaje-form-usuario-contraseña");
-    // limpiar advertencia anterior si la hubiera
+    // Limpiar advertencia anterior si la hubiera
     MENSAJE.innerHTML = "";
 
-    // colocar advertencia de ser necesario - usuario
+    // Colocar advertencia de ser necesario 
     if (erroresDatoIncompleto.length > 0) {
         MENSAJE.innerHTML = "Debe completar ambos campos.";
         return;
     }
-
-    // colocar advertencia de ser necesario - contraseña
     if (erroresDatoEquivocado.length > 0) {
         MENSAJE.innerHTML = "Usuario y/o contraseña incorrectos. Por favor, vuelta a intentarlo.";
     }
