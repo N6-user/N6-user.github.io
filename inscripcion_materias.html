@@ -26,14 +26,57 @@
     </div>
     <div id="contenedor-contenido-inscripcion">
         <div id="contenedor-inscripcion">
-            <h1 id="titulo-inscripción">Inscripción a materias - 2do año TUDS 2024 </h1>
+            <h1 id="titulo-inscripción">Inscripción a materias - TUDS 2024 1er cuatrimestre, 2do año </h1>
             <p>La inscripción queda sujeta a verificación de correlativas. Una vez verificada su situación académica se
                 le confirmará la inscripción con la habilitación de aula virtual correspondiente.</p>
+            <form id="form-inscripcion">
+                <label for="fm-inscripcion-tf-correo">Correo:</label><br>
+                <input type="text" id="fm-inscripcion-tf-correo" name="fm-inscripcion-tf-correo"><br>
+                <p id="fm-inscripcion-tf-correo-error"></p>
 
+                <label for="fm-inscripcion-tf-apellido">Apellido:</label><br>
+                <input type="text" id="fm-inscripcion-tf-apellido" name="fm-inscripcion-tf-apellido"><br>
+                <p id="fm-inscripcion-tf-apellido-error"></p>
+
+                <label for="fm-inscripcion-tf-nombre">Nombre completo:</label><br>
+                <input type="text" id="fm-inscripcion-tf-nombre" name="fm-inscripcion-tf-nombre"><br>
+                <p id="fm-inscripcion-tf-nombre-error"></p>
+
+                <label for="fm-inscripcion-tf-dni">DNI (sin puntos):</label><br>
+                <input type="text" id="fm-inscripcion-tf-dni" name="fm-inscripcion-tf-dni"><br>
+                <p id="fm-inscripcion-tf-dni-error"></p>
+
+                <label for="fm-inscripcion-tf-celular">Teléfono celular: </label><br>
+                <input type="text" id="fm-inscripcion-tf-celular" name="fm-inscripcion-tf-celular"><br>
+                <p id="fm-inscripcion-tf-celular-error"></p>
+
+                <p id="materias-inscripcion">Materias en las que desea inscribirse:</p>
+                <input type="checkbox" id="fm-inscripcion-cb-lab-prog-2" name="fm-inscripcion-cb-lab-prog-2"
+                    value="Laboratorio de programación 2">
+                <label for="fm-inscripcion-cb-lab-prog-2"> Laboratorio de programación 2</label><br>
+                <input type="checkbox" id="fm-inscripcion-cb-adm-base-datos" name="fm-inscripcion-cb-adm-base-datos"
+                    value="Administración de base de datos">
+                <label for="fm-inscripcion-cb-adm-base-datos"> Administración de base de datos</label><br>
+                <input type="checkbox" id="fm-inscripcion-cb-prog-web-2" name="fm-inscripcion-cb-prog-web-2"
+                    value="Programación Web 2">
+                <label for="fm-inscripcion-cb-prog-web-2"> Programación Web 2</label><br>
+                <input type="checkbox" id="fm-inscripcion-cb-mat-2" name="fm-inscripcion-cb-mat-2" value="Matemática 2">
+                <label for="fm-inscripcion-cb-mat-2"> Matemática 2</label><br>
+                <input type="checkbox" id="fm-inscripcion-cb-ingles-tec-1" name="fm-inscripcion-cb-ingles-tec-1"
+                    value="Inglés técnico 1">
+                <label for="fm-inscripcion-cb-ingles-tec-1"> Inglés técnico 1</label><br>
+                <input type="checkbox" id="fm-inscripcion-cb-ing-software" name="fm-inscripcion-cb-ing-software"
+                    value="Ingreniería de software">
+                <label for="fm-inscripcion-cb-ing-software"> Ingreniería de software</label><br>
+                <p id="fm-inscripcion-cb-materias-error"></p>
+
+                <button type="button" id="fm-inscripcion-bt-envio" onclick="corroborarDatos()">Enviar</button>
+            </form>
+            <p id="inscripcion-mensaje-datos-enviados"></p>
         </div>
     </div>
 
-    <script src="JS/seleccion_aula.js"></script>
+    <script src="JS/validacion_formulario.js"></script>
 </body>
 
 </html>

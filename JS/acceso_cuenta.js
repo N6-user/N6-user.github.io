@@ -5,11 +5,11 @@ const todosLosDatos = [USUARIO, CONTRASEÑA], erroresDatoIncompleto = [], errore
 function corroborarDatos() {
     erroresDatoIncompleto.length = 0;
     erroresDatoEquivocado.length = 0;
-    let usuario = USUARIO.value;
+    let usuario = (USUARIO.value + "").trim();  // existe otra manera?
     let contraseña = CONTRASEÑA.value;
     let datosCorrectos = true;
 
-    // revisar usuario
+    // revisar usuario    
     if (usuario == "") {
         datosCorrectos = false;
         erroresDatoIncompleto.push(USUARIO);

@@ -11,6 +11,13 @@ body {
     background-color: lightgray;
 }
 
+#fm-inscripcion-bt-envio {
+    font-size: 15px;
+    margin-top: 50px;
+}
+
+
+
 #contenedor-acceso-cuenta {
     display: flex;
     flex-direction: column;
@@ -26,8 +33,6 @@ body {
     align-items: center;
     width: 40%;
     user-select: none;
-    /* -webkit-user-select: none; */
-    /* CONSULTA*/
 }
 
 #contenedor-secciones-aula {
@@ -176,8 +181,8 @@ body {
 #contenedor-contenido-inscripcion {
     display: flex;
     justify-content: center;
-    height: 90%;
-    width: 60%;
+    height: auto;
+    width: 100%;
 }
 
 #contenedor-contenido-columnas-principal {
@@ -248,6 +253,44 @@ body {
     background-color: dodgerblue;
 }
 
+#form-inscripcion {
+    border: 1px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 20px;
+    height: auto;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 30px 50px;
+    width: 60%;
+}
+
+#form-inscripcion input[type="text"] {
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+#form-inscripcion input[type="checkbox"] {
+    margin: 15px 0px;
+}
+
+#form-inscripcion label[for*="tf"] {
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+#materias-inscripcion {
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+#form-inscripcion p[id*="error"] {
+    color: red;
+    margin-top: 10px;
+}
+
 #form-usuario-contraseña {
     display: flex;
     flex-direction: column;
@@ -301,7 +344,8 @@ body {
     text-align: center;
 }
 
-.text-field {
+input[type="text"],
+input[type="password"] {
     width: 100%;
 }
 
