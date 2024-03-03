@@ -16,8 +16,6 @@ body {
     margin-top: 50px;
 }
 
-
-
 #contenedor-acceso-cuenta {
     display: flex;
     flex-direction: column;
@@ -313,6 +311,18 @@ body {
     justify-content: end;
     height: 60%;
     width: 100%;
+}
+
+#menu a {
+    font-weight: bold;
+}
+
+#tf-usuario {
+    font-size: 17px;
+}
+
+.pista {
+    font-size: 14px;
 }
 
 #nombre-materia {

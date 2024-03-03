@@ -59,7 +59,7 @@ function corroborarDatos() {
         datosCorrectos = false;
         erroresDatoIncompleto.push(NOMBRE);
     } else {
-        if (!/^[a-zA-Z\s]{2,50}$/.test(nombre)) {
+        if (!/^[a-zA-Z\sñüáéíóúÁÉÍÓÚ]{2,50}$/.test(nombre)) {
             datosCorrectos = false;
             erroresDatoEquivocado.push(NOMBRE);
         }
@@ -94,18 +94,66 @@ function corroborarDatos() {
     }
 
     if (datosCorrectos) {
-        // Inhabilitar los componentes del formulario
-        document.getElementById("fm-inscripcion-bt-envio").setAttribute("disabled", "true");
-        CORREO.setAttribute("disabled", "true");
-        APELLIDO.setAttribute("disabled", "true");
-        NOMBRE.setAttribute("disabled", "true");
-        DNI.setAttribute("disabled", "true");
-        CELULAR.setAttribute("disabled", "true");
-        for (let materia of MATERIAS) {
-            materia.setAttribute("disabled", "true");
+        // Remover el formulario y el mensaje que lo acompaña
+        document.getElementById("form-inscripcion").remove();
+        document.getElementById("inscripcion-mensaje-datos-enviados").remove();
+
+        // Crear nuevos elementos con los que mostrar la información enviada
+        const RESPUESTA = document.createElement("div");
+        const RES_TITULO = document.createElement("h3");
+        const TEXT_RES_TITULO = document.createTextNode("Gracias por completar el formulario, " + NOMBRE.value + ". Esta es la información que se envió:");
+        const CONTENEDOR_INFO_ENVIADA = document.createElement("div");
+        const INFO_NOMBRE = document.createElement("p");
+        const TEXT_INFO_NOMBRE = document.createTextNode("Nombre: " + NOMBRE.value);
+        const INFO_APELLIDO = document.createElement("p");
+        const TEXT_INFO_APELLIDO = document.createTextNode("Apellido: " + APELLIDO.value);
+        const INFO_CORREO = document.createElement("p");
+        const TEXT_INFO_CORREO = document.createTextNode("Correo: " + CORREO.value);
+        const INFO_DNI = document.createElement("p");
+        const TEXT_INFO_DNI = document.createTextNode("DNI: " + DNI.value);
+        const INFO_CELULAR = document.createElement("p");
+        const TEXT_INFO_CELULAR = document.createTextNode("Celular: " + CELULAR.value);
+        const INFO_MATERIAS = document.createElement("p");
+        const LISTA_MATERIAS_SOLICITADAS = document.createElement("ul");
+        const TEXT_LISTA_MATERIAS_SOLICITADAS = document.createTextNode("Materias a las solicitó la inscripción:")
+        for (const MAT of MATERIAS) {
+            if (MAT.checked) {
+                const LI = document.createElement("li");
+                const TEXT_LI = document.createTextNode(MAT.value);
+                LI.appendChild(TEXT_LI);
+                LISTA_MATERIAS_SOLICITADAS.appendChild(LI);
+            }
         }
 
-        MENSAJE.innerHTML = "Los datos han sido enviados correctamente. Espere nuestra respuesta.";
+        const CONTENEDOR_INSCRIPCION = document.getElementById("contenedor-inscripcion");
+
+        // Dar estilo a los elmentos recién creados
+        RESPUESTA.style.display = "flex";
+        RESPUESTA.style.flexDirection = "column";
+        RESPUESTA.style.alignItems = "center"
+        CONTENEDOR_INFO_ENVIADA.style.textIndent = "15px";
+        CONTENEDOR_INFO_ENVIADA.style.border = "2px solid black";
+        CONTENEDOR_INFO_ENVIADA.style.borderRadius = "10px";
+        CONTENEDOR_INFO_ENVIADA.style.width = "70%";
+
+        // Agregar estos elementos al documento
+        RES_TITULO.appendChild(TEXT_RES_TITULO);
+        INFO_NOMBRE.appendChild(TEXT_INFO_NOMBRE);
+        INFO_APELLIDO.appendChild(TEXT_INFO_APELLIDO);
+        INFO_CORREO.appendChild(TEXT_INFO_CORREO);
+        INFO_DNI.appendChild(TEXT_INFO_DNI);
+        INFO_CELULAR.appendChild(TEXT_INFO_CELULAR);
+        INFO_MATERIAS.appendChild(TEXT_LISTA_MATERIAS_SOLICITADAS)
+        INFO_MATERIAS.appendChild(LISTA_MATERIAS_SOLICITADAS);
+        CONTENEDOR_INFO_ENVIADA.appendChild(INFO_NOMBRE);
+        CONTENEDOR_INFO_ENVIADA.appendChild(INFO_APELLIDO);
+        CONTENEDOR_INFO_ENVIADA.appendChild(INFO_CORREO);
+        CONTENEDOR_INFO_ENVIADA.appendChild(INFO_DNI);
+        CONTENEDOR_INFO_ENVIADA.appendChild(INFO_CELULAR);
+        CONTENEDOR_INFO_ENVIADA.appendChild(INFO_MATERIAS);
+        RESPUESTA.appendChild(RES_TITULO);
+        RESPUESTA.appendChild(CONTENEDOR_INFO_ENVIADA);
+        CONTENEDOR_INSCRIPCION.appendChild(RESPUESTA);
     } else {
         MENSAJE.innerHTML = "Uno o más datos incorrectos. Por favor, reviselo y vuelva a enviar.";
     }
